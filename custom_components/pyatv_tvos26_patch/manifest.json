@@ -1,0 +1,13 @@
+{
+  "domain": "pyatv_tvos26_patch",
+  "name": "pyatv tvOS 26 Companion-protocol patch",
+  "version": "1.0.0",
+  "documentation": "https://github.com/postlund/pyatv/issues/2845",
+  "issue_tracker": "https://github.com/postlund/pyatv/issues/2845",
+  "codeowners": ["@marcdassler"],
+  "iot_class": "local_polling",
+  "integration_type": "service",
+  "requirements": [],
+  "dependencies": [],
+  "config_flow": false
+}
