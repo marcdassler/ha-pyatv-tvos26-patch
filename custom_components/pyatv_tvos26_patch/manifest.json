@@ -1,7 +1,7 @@
 {
   "domain": "pyatv_tvos26_patch",
   "name": "pyatv tvOS 26 Companion-protocol patch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "documentation": "https://github.com/postlund/pyatv/issues/2845",
   "issue_tracker": "https://github.com/postlund/pyatv/issues/2845",
   "codeowners": ["@marcdassler"],

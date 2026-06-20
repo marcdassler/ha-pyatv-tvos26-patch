@@ -1,6 +1,8 @@
 # ha-pyatv-tvos26-patch
 
-A tiny Home Assistant custom-integration that patches **pyatv** at runtime to work around a known bug between **tvOS 26.x** and **pyatv ≤ 0.17.0** on Apple TV 4K (gen 3, model `AppleTV14,1`).
+A tiny Home Assistant custom-integration that patches **pyatv** at runtime to work around two bugs between **tvOS 26.x** and **pyatv ≤ 0.17.0** on Apple TV 4K (gen 3, model `AppleTV14,1`).
+
+> **v1.1** adds a second workaround — a **push-subscription heartbeat**. The v1.0 handshake fix (below) cures the *connect-time* errors, but a deeper failure remains: after a healthy connect, the `_iMC` media-remote event subscription goes **silent mid-session** without the connection erroring, so HA's `media_player` freezes at its last state (`playing`) for hours. The heartbeat timestamps every push; when one goes silent past ~10 min it sends an active probe and, if the command channel is alive, **re-subscribes `_iMC`** to re-initiate the push — no disconnect, no entity flap. If the connection is genuinely dead it does nothing and leaves recovery to the downstream HA-side reload. Self-disables on repeated error; never forces a disconnect. See `decide_heartbeat_action` + `_heartbeat_loop` in `__init__.py`.
 
 ## The bug it fixes
 
